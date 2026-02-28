@@ -4,6 +4,7 @@ import * as echarts from 'echarts';
 // Always use import {GoogleGenAI} from "@google/genai";
 import { GoogleGenAI } from "@google/genai";
 import { database, CATEGORIES, discoveryItems } from './data';
+import chinaMapData from './china-map.json';
 
 // --- 子组件 ---
 
@@ -108,9 +109,7 @@ const App: React.FC = () => {
       if (!charts.current.map && mapRef.current) {
         charts.current.map = echarts.init(mapRef.current);
         try {
-          const res = await fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json');
-          const geoJson = await res.json();
-          echarts.registerMap('china', geoJson);
+          echarts.registerMap('china', chinaMapData);
         } catch (e) { console.error("地图数据加载失败", e); }
       }
       updateMap();
