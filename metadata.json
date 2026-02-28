@@ -1,0 +1,5 @@
+{
+  "name": "中国非物质文化遗产数字化大屏",
+  "description": "一个基于ECharts和React构建的交互式可视化面板，展示中国国家级非物质文化遗产的数据分布、类别构成及地域特色。支持动态地图交互与多维度数据下钻。",
+  "requestFramePermissions": []
+}
