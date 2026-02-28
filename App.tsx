@@ -87,6 +87,11 @@ const App: React.FC = () => {
     const fetchAiInsight = async () => {
       setAiInsight("正在生成 AI 数字化洞察...");
       try {
+        // 检查API_KEY是否存在
+        if (!process.env.API_KEY) {
+          setAiInsight("AI 洞察功能需要配置 API Key");
+          return;
+        }
         // Use this process.env.API_KEY string directly when initializing the @google/genai client instance
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         const response = await ai.models.generateContent({
